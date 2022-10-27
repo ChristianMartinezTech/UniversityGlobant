@@ -1,5 +1,7 @@
 package DataModel;
 
+import java.util.Arrays;
+
 public class Student {
     private String name;
     private int id;
@@ -34,10 +36,16 @@ public class Student {
         setName(name);
         setAge(age);
         setNewId();
+        University.addStudent(this);
     }
 
     // Methods
     private void setNewId(){
         setId(1); // Configure this from University Class
     };
+
+    @Override
+    public String toString(){
+        return "Student name: " + this.name +  ". Student ID: " + this.id + ". Age: " + this.age + ".";
+    }
 }

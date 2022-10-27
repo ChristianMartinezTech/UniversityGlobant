@@ -1,54 +1,51 @@
-import DataModel.Course;
-import DataModel.FullTimeTeacher;
-import DataModel.PartTimeTeacher;
-import DataModel.Student;
+import DataModel.University;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Instantiating FullTimeTeacher
-        FullTimeTeacher Carlos = new FullTimeTeacher("Carlos", 32.5f, 7);
-        System.out.println("Name: " + Carlos.getName());
-        System.out.println("Base Salary: " + Carlos.getBaseSalary());
-        System.out.println("Experience Years: " + Carlos.getExpYears());
-        System.out.println("Full Time: " + Carlos.getFullTime());
-        System.out.println("Salary: " + Carlos.calculateSalary());
-        System.out.println("------------------");
 
-        // Instantiating FullTimeTeacher
-        PartTimeTeacher Alfonso = new PartTimeTeacher("Alfonso", 15.1f, 20);
-        System.out.println("Name: " + Alfonso.getName());
-        System.out.println("Base Salary: " + Alfonso.getBaseSalary());
-        System.out.println("Weekly Hours: " + Alfonso.getWeeklyHours());
-        System.out.println("Full Time: " + Alfonso.getFullTime());
-        System.out.println("Salary: " + Alfonso.calculateSalary());
-        System.out.println("------------------");
+        // App menus functionality
+        Scanner usr = new Scanner(System.in);
+        System.out.println("Hi there. Welcome to Globant University");
+        System.out.println("1. Type 1 for Teacher");
+        System.out.println("2. Type 2 for Student");
+        System.out.println("3. Type 3 to show a specific course information");
+        System.out.println("4. Type 4 to show all courses information");
+        System.out.println("5. Type 4 to exit");
 
-        // Instantiating Student
-        Student Albertico = new Student("Albertico", 15);
-        System.out.println("Name: " + Albertico.getName());
-        System.out.println("Id: " + Albertico.getId());
-        System.out.println("Age: " + Albertico.getAge());
-        System.out.println("------------------");
+        int usrOption = usr.nextInt();
+        menuOptions(usrOption);
+    }
 
-        // Instantiating Course
-        String[] students = new String[2];
-        students[0] = "Chris";
-        students[1] = "Danielito";
+    // Methods
+    public static void menuOptions(int usrOption){
+        switch(usrOption){
+            case 1:
+                teacherMenu();
+            case 2:
+                studentMenu();
+            case 3:
+                specificCourse();
+            case 4:
+                System.out.println(University.getListOfCourses());
+            case 5:
+                System.exit(0);
+            default:
+                System.out.println("Not valid. Please select the correct number");
+        }
+    }
 
-        Course Spanish = new Course("Spanish", 101, students, "Profe");
-        System.out.println(Spanish);
-        System.out.println("------------------");
-        System.out.println("Name: " + Spanish.getName());
-        System.out.println("Classroom: " + Spanish.getClassroom());
-        System.out.println("Teacher: " + Spanish.getTeacherName());
-        System.out.println("Students: " + Arrays.toString(Spanish.getCourseStudents()));
-        System.out.println("------------------");
+    public static void teacherMenu(){
+        System.out.println("Welcome teacher! Please input your full name:");
 
-        // Work on:
-        // Course: enrollStudents and assignTeacher methods
-        // Teacher and Student assing and unassing
-        // University class
+    }
+
+    public static void studentMenu(){
+
+    }
+
+    public static void specificCourse(){
+
     }
 }

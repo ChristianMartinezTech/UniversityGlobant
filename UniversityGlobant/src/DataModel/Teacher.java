@@ -28,15 +28,17 @@ abstract class Teacher{
         isFullTime = fullTime;
     }
 
-    // Methods
-    private float calculateSalary(){
-        return 0.00f;
-    }
-
     // Constructor
     public Teacher(String name, float baseSalary){
         this.setName(name);
         this.setBaseSalary(baseSalary);
+        University.addTeacher(this);
     }
 
+    // Methods
+
+    @Override
+    public String toString(){
+        return "Teacher name: " + this.name +  ". Base salary: " + this.baseSalary + ". Full time: " + this.isFullTime + ".";
+    }
 }
