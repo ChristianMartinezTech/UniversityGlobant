@@ -1,6 +1,6 @@
 package DataModel;
 
-abstract class Teacher{
+public abstract class Teacher{
     private String name;
     private float baseSalary;
     private boolean isFullTime;

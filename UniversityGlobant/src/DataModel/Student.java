@@ -19,8 +19,6 @@ public class Student {
     }
 
     // Setters
-
-
     public void setName(String name) {
         this.name = name;
     }

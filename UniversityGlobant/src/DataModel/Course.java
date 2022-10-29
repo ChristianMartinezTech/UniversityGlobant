@@ -7,7 +7,7 @@ public class Course {
     private String name;
     private int classroom;
     private String teacherName;
-    private String[] courseStudents;
+    private Student[] courseStudents;
 
     // Getter
     public int getCourseId() {
@@ -24,7 +24,7 @@ public class Course {
         return teacherName;
     }
 
-    public String[] getCourseStudents() {
+    public Student[] getCourseStudents() {
         return courseStudents;
     }
 
@@ -41,17 +41,17 @@ public class Course {
         this.classroom = classroom;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
+    public static void setTeacherName(String teacherName) {
+        teacherName = teacherName;
     }
 
-    public void setCourseStudents(String[] courseStudents) {
+    public void setCourseStudents(Student[] courseStudents) {
         this.courseStudents = courseStudents;
     }
 
 
     // Constructor
-    public Course(String name, int classroom, String[] courseStudents, String teacherName){
+    public Course(String name, int classroom, Student[] courseStudents, String teacherName){
         setNewId();
         setName(name);
         setClassroom(classroom);
