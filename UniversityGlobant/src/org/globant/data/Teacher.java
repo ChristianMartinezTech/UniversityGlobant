@@ -1,10 +1,16 @@
-package DataModel;
+package org.globant.data;
 
 public abstract class Teacher{
     private String name;
     private float baseSalary;
     private boolean isFullTime;
 
+    // Constructor
+    public Teacher(String name, float baseSalary){
+        this.name = name;
+        this.baseSalary = baseSalary;
+        University.addTeacher(this);
+    }
 
     // Getter
     public float getBaseSalary() {
@@ -28,15 +34,8 @@ public abstract class Teacher{
         isFullTime = fullTime;
     }
 
-    // Constructor
-    public Teacher(String name, float baseSalary){
-        this.setName(name);
-        this.setBaseSalary(baseSalary);
-        University.addTeacher(this);
-    }
 
     // Methods
-
     @Override
     public String toString(){
         return "Teacher name: " + this.name +  ". Base salary: " + this.baseSalary + ". Full time: " + this.isFullTime + ".";

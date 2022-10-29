@@ -1,4 +1,4 @@
-package DataModel;
+package org.globant.data;
 
 import java.util.Arrays;
 
@@ -8,6 +8,16 @@ public class Course {
     private int classroom;
     private String teacherName;
     private Student[] courseStudents;
+
+    // Constructor
+    public Course(String name, int classroom, Student[] courseStudents, String teacherName){
+        this.name = name;
+        this.classroom = classroom;
+        this.courseStudents = courseStudents;
+        this.teacherName = teacherName;
+        this.courseId = (int)(Math.random() * 9999);
+        University.addCourse(this);
+    }
 
     // Getter
     public int getCourseId() {
@@ -47,17 +57,6 @@ public class Course {
 
     public void setCourseStudents(Student[] courseStudents) {
         this.courseStudents = courseStudents;
-    }
-
-
-    // Constructor
-    public Course(String name, int classroom, Student[] courseStudents, String teacherName){
-        setNewId();
-        setName(name);
-        setClassroom(classroom);
-        setCourseStudents(courseStudents);
-        setTeacherName(teacherName);
-        University.addCourse(this);
     }
 
 

@@ -1,12 +1,12 @@
-import DataModel.*;
+package org.globant.view;
+
+import org.globant.data.*;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Instantiating University
-        preInfoSetup();
 
         // App menus functionality
         Scanner usr = new Scanner(System.in);
@@ -18,11 +18,11 @@ public class Main {
         System.out.println("5. Type 5 to exit");
 
         int usrOption = usr.nextInt();
-        menuOptions(usrOption);
+        menuOptions(usrOption, preInfoSetup());
     }
 
     // Methods
-    public static void preInfoSetup(){
+    public static University preInfoSetup(){
         // Initializing University
         University Globant = new University();
 
@@ -56,25 +56,26 @@ public class Main {
         studentsBackEnd[0] = Chris;
         studentsBackEnd[1] = Jarold;
         studentsBackEnd[2] = Teo;
-        Course BackEnd = new Course("Back-End Development", 102, studentsBackEnd, Benzema.getName());
+        Course BackEnd = new Course("Back-End Development", 103, studentsBackEnd, Benzema.getName());
 
         Student[] studentsDevOps = new Student[2];
         studentsDevOps[0] = Chris;
         studentsDevOps[1] = Rivas;
-        Course DevOps = new Course("DevOps Development", 102, studentsDevOps, Vini.getName());
+        Course DevOps = new Course("DevOps Development", 104, studentsDevOps, Vini.getName());
+        return Globant;
     }
 
 
-    public static void menuOptions(int usrOption){
+    public static void menuOptions(int usrOption, University Globant){
         switch(usrOption){
             case 1:
-                teacherMenu();
+                teacherMenu(Globant);
                 break;
             case 2:
-                studentMenu();
+                studentMenu(Globant);
                 break;
             case 3:
-                specificCourse();
+                //specificCourse();
                 break;
             case 4:
                 System.out.println(University.getListOfCourses());
@@ -86,7 +87,7 @@ public class Main {
         }
     }
 
-    public static void teacherMenu(){
+    public static void teacherMenu(University Globant){
         Scanner usr = new Scanner(System.in);
         System.out.println("Welcome teacher! Please input your full name:");
 
@@ -130,7 +131,7 @@ public class Main {
         }
     }
 
-    public static void studentMenu(){
+    public static void studentMenu(University Globant){
         Scanner usr = new Scanner(System.in);
         System.out.println("Welcome! Please input your student ID:");
 
@@ -144,10 +145,6 @@ public class Main {
         } else {
             System.out.println("Student NOT found");
         }
-    }
-
-    public static void specificCourse(){
-
     }
 }
 // Work on Teacher's methods

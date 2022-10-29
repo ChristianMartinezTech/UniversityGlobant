@@ -1,7 +1,14 @@
-package DataModel;
+package org.globant.data;
 
 public class PartTimeTeacher extends Teacher{
     private int weeklyHours;
+
+    // Constructor
+    public PartTimeTeacher(String name, float baseSalary, int weeklyHours){
+        super(name, baseSalary);
+        this.weeklyHours = weeklyHours;
+        this.setFullTime(false);
+    }
 
     // Getter
     public int getWeeklyHours() {
@@ -11,13 +18,6 @@ public class PartTimeTeacher extends Teacher{
     // Setter
     public void setWeeklyHours(int weeklyHours) {
         this.weeklyHours = weeklyHours;
-    }
-
-    // Constructor
-    public PartTimeTeacher(String name, float baseSalary, int weeklyHours){
-        super(name, baseSalary);
-        setWeeklyHours(weeklyHours);
-        this.setFullTime(false);
     }
 
     // Methods

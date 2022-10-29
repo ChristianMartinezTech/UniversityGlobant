@@ -1,7 +1,14 @@
-package DataModel;
+package org.globant.data;
 
 public class FullTimeTeacher extends Teacher{
     private int expYears;
+
+    // Constructor
+    public FullTimeTeacher(String name, float baseSalary, int expYears){
+        super(name, baseSalary);
+        this.expYears = expYears;
+        this.setFullTime(true);
+    }
 
     // Getter
     public int getExpYears(){
@@ -11,13 +18,6 @@ public class FullTimeTeacher extends Teacher{
     //Setter
     public void setExpYears(int expYears) {
         this.expYears = expYears;
-    }
-
-    // Constructor
-    public FullTimeTeacher(String name, float baseSalary, int expYears){
-        super(name, baseSalary);
-        setExpYears(expYears);
-        this.setFullTime(true);
     }
 
     // Methods

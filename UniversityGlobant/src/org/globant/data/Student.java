@@ -1,4 +1,4 @@
-package DataModel;
+package org.globant.data;
 
 import java.util.Arrays;
 
@@ -6,6 +6,13 @@ public class Student {
     private String name;
     private int id;
     private int age;
+
+    // Constructor
+    public Student(String name, int age){
+        this.name = name;
+        this.age = age;
+        this.id = (int)(Math.random() * 9999);
+    }
 
     // Getters
     public String getName() {
@@ -29,19 +36,7 @@ public class Student {
         this.id = id;
     }
 
-    // Constructor
-    public Student(String name, int age){
-        setName(name);
-        setAge(age);
-        setNewId();
-        University.addStudent(this);
-    }
-
     // Methods
-    private void setNewId(){
-        setId(1); // Configure this from University Class
-    };
-
     @Override
     public String toString(){
         return "Student name: " + this.name +  ". Student ID: " + this.id + ". Age: " + this.age + ".";

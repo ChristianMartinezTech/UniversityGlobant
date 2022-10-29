@@ -1,4 +1,4 @@
-package DataModel;
+package org.globant.data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,10 +69,14 @@ public class University {
         teacherCourse = new ArrayList<>();
 
         for (int i = 0; i < listOfCourses.size(); i++) {
+            System.out.println("1");
+
             if (listOfCourses.get(i).getTeacherName().equals(teacherName)){
+                System.out.println("2");
                 teacherCourse.add(String.valueOf(listOfCourses.get(i)));
             }
         }
+        System.out.println("3");
         return teacherCourse.toString();
     }
 
