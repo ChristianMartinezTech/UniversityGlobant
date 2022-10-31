@@ -1,6 +1,7 @@
 package org.globant.data;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class Course {
     private int courseId;
@@ -72,9 +73,6 @@ public class Course {
 
     // Add student Method
     public void addStudent(Student newStudent){
-        /**for (int i = 0; i < courseStudents.length; i++){
-            if (courseStudents[i] == newStudent) {
-            }
-        }**/
+        
     }
 }
