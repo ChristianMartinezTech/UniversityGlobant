@@ -169,4 +169,44 @@ public class University {
             }
             return ("Student already Added to Class");
         }
+
+        // Remove Student from class
+        public static String removeStudentFromClass(int studentID, int courseID){
+            List studentCourses = studentCourses(studentID);
+            String courseName = findCourseByID(courseID);
+
+            if (studentCourses.contains(courseName)) {
+                for (int i = 0; i < listOfCourses.size(); i++) {
+                    if (Objects.equals(listOfCourses.get(i).getCourseId(), courseID)) {
+
+                        listOfCourses.get(i).removeStudent(studentClass(studentID));
+                        return "Student removed from class";
+                    }
+                }
+            }
+            return ("Student already not in said class");
+        }
+
+        // Course exists
+        public static boolean courseExists(int courseID){
+            boolean exists = false;
+
+            for (int i = 0; i < listOfCourses.size(); i++){
+                if (listOfCourses.get(i).getCourseId() == courseID){
+                    exists = true;
+                }
+            }
+            return exists;
+        }
+
+        // Get course details
+        public static String courseDetails(int courseID){
+        String details = "";
+            for (int i = 0; i < listOfCourses.size(); i++){
+                if (listOfCourses.get(i).getCourseId() == courseID){
+                    details = listOfCourses.get(i).showCourseDetails();
+                }
+            }
+            return details;
+        }
 }

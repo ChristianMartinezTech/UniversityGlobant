@@ -76,4 +76,9 @@ public class Course {
     public void addStudent(Student newStudent){
         this.courseStudents.add(newStudent);
     }
+
+    // Remove student method
+    public void removeStudent(Student newStudent){
+        this.courseStudents.remove(newStudent);
+    }
 }

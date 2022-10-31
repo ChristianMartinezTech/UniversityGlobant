@@ -38,6 +38,6 @@ public class Student {
     // Methods
     @Override
     public String toString(){
-        return "Student name: " + this.name +  ". Student ID: " + this.id + ". Age: " + this.age + ".";
+        return "Student name: " + this.name +  ". Student ID: " + this.id;
     }
 }
