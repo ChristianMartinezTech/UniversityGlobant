@@ -1,6 +1,7 @@
 package org.globant.data;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,6 +9,13 @@ public class University {
     private static List<Teacher> listOfTeachers;
     private static List<Student> listOfStudents;
     private static List<Course> listOfCourses;
+
+    // Constructor
+    public University(){
+        listOfTeachers = new ArrayList<>();
+        listOfStudents = new ArrayList<>();
+        listOfCourses = new ArrayList<>();
+    }
 
     // Getters
     public static List<Teacher> getListOfTeachers() {
@@ -20,12 +28,6 @@ public class University {
         return listOfCourses;
     }
 
-    // Constructor
-    public University(){
-        listOfTeachers = new ArrayList<>();
-        listOfStudents = new ArrayList<>();
-        listOfCourses = new ArrayList<>();
-    }
 
     // Methods to add
     public static void addTeacher(Teacher teacher){
@@ -51,8 +53,42 @@ public class University {
         return false;
     }
 
+    // Find all teacher courses
+    public static List teacherCourses(String teacherName){
+        List<String> teacherCourse;
+        teacherCourse = new ArrayList<>();
 
-    // Find Student
+        for (int i = 0; i < listOfCourses.size(); i++) {
+            if (listOfCourses.get(i).getTeacherName().equals(teacherName)){
+                teacherCourse.add(String.valueOf(listOfCourses.get(i)));
+            }
+        }
+        return teacherCourse;
+    }
+
+    // Assign teacher to Course
+    public static String assignTeacher(int courseID, String teacherName){
+        for (int i = 0; i < listOfCourses.size(); i++) {
+            if (Objects.equals(listOfCourses.get(i).getCourseId(), courseID)){
+                listOfCourses.get(i).setTeacherName(teacherName);
+                return("Teacher set to Course: " + listOfCourses.get(i).getName());
+            }
+        }
+        return("Course ID not found. Could not assign teacher to Course.");
+    }
+
+    // Remove teacher from Course
+    public static String removeTeacherFromClass(int courseID){
+        for (int i = 0; i < listOfCourses.size(); i++) {
+            if (Objects.equals(listOfCourses.get(i).getCourseId(), courseID)){
+                listOfCourses.get(i).setTeacherName("");
+                return("Teacher removed from course: " + listOfCourses.get(i).getName());
+            }
+        }
+        return("Course ID not found. Could not assign teacher to Course.");
+    }
+
+    // Find Student ID
     public static boolean findStudent(int studentID) {
         for (int i = 0; i < listOfStudents.size(); i++) {
             if (listOfStudents.get(i).getId() == studentID) {
@@ -62,33 +98,60 @@ public class University {
         return false;
     }
 
-
-    // Teacher courses
-    public static String teacherCourses(String teacherName){
-        List<String> teacherCourse;
-        teacherCourse = new ArrayList<>();
-
-        for (int i = 0; i < listOfCourses.size(); i++) {
-            System.out.println("1");
-
-            if (listOfCourses.get(i).getTeacherName().equals(teacherName)){
-                System.out.println("2");
-                teacherCourse.add(String.valueOf(listOfCourses.get(i)));
+    // Find the Student Name
+    public static String findStudentName(int studentID){
+        for (int i = 0; i < listOfStudents.size(); i++) {
+            if (listOfStudents.get(i).getId() == studentID) {
+                return listOfStudents.get(i).getName();
             }
         }
-        System.out.println("3");
-        return teacherCourse.toString();
+        return "Student Name not found";
     }
 
+    // Find all Student Courses
+    public static List studentCourses(int studentID){
+        List<String> studentCourse;
+        studentCourse = new ArrayList<>();
+        String studentName = findStudentName(studentID);
 
-    // assign teacher to class
-    public static String assignTeacher(int courseID, String teacherName){
         for (int i = 0; i < listOfCourses.size(); i++) {
-            if (Objects.equals(listOfCourses.get(i).getCourseId(), courseID)){
-                Course.setTeacherName(teacherName);
-                return("Teacher set to Course: " + listOfCourses.get(i).getName());
+            Course course = listOfCourses.get(i);
+            Student[] students = course.getCourseStudents();
+
+            for (int j = 0; j < students.length; j++){
+                if (Objects.equals(students[j].getName(), studentName)){
+                    studentCourse.add(listOfCourses.get(i).getName());
+                }
             }
+            }
+        return studentCourse;
         }
-        return("Course ID not found. Could not assign teacher to Course.");
+
+        // Find course by id
+        public static String findCourseByID(int courseID){
+            String courseName = "";
+
+            for (int i = 0; i < listOfCourses.size(); i++) {
+                Course course = listOfCourses.get(i);
+                if (course.getCourseId() == courseID){
+                    courseName = course.getName();
+                    return courseName;
+                }
+            }
+            return courseName;
+        }
+
+        // Add student to course
+        public static String addStudentToCourse(int studentID, int courseID){
+            String courseName = findCourseByID(courseID); // English
+            String studentName = findStudentName(studentID); // Christian Martinez
+
+            for (int i = 0; i < listOfCourses.size(); i++) {
+                if (Objects.equals(listOfCourses.get(i).getName(), courseName)){
+                    // Si encontramos el curso con nombre "English"
+                    // Course.addStudent(studentName);
+                }
+            }
+            return "";
+        }
     }
-}

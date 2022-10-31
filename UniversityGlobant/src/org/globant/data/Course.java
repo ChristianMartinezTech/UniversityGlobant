@@ -15,7 +15,7 @@ public class Course {
         this.classroom = classroom;
         this.courseStudents = courseStudents;
         this.teacherName = teacherName;
-        this.courseId = (int)(Math.random() * 9999);
+        this.courseId = (int)(Math.random() * 999);
         University.addCourse(this);
     }
 
@@ -51,8 +51,7 @@ public class Course {
         this.classroom = classroom;
     }
 
-    public static void setTeacherName(String teacherName) {
-        teacherName = teacherName;
+    public void setTeacherName(String teacherName) {this.teacherName = teacherName;
     }
 
     public void setCourseStudents(Student[] courseStudents) {
@@ -63,14 +62,19 @@ public class Course {
     // Methods
     @Override
     public String toString(){
-        return "Course name: " + this.name +  ". Course ID: " + this.courseId + ". Classroom: " + this.classroom + ". Students: " + Arrays.toString(this.courseStudents) + ". Teacher: " + teacherName + ".";
+        return "Course name: " + this.name + ". Teacher: " + teacherName + ". Course ID: " + this.courseId + ". Classroom: " + this.classroom + ". Students: " + Arrays.toString(this.courseStudents) + ".";
     }
 
+    // Print course details
     public String showCourseDetails(){
         return toString();
     }
 
-    private void setNewId(){
-        setCourseId(1); // Configure this from University Class
-    };
+    // Add student Method
+    public void addStudent(Student newStudent){
+        /**for (int i = 0; i < courseStudents.length; i++){
+            if (courseStudents[i] == newStudent) {
+            }
+        }**/
+    }
 }

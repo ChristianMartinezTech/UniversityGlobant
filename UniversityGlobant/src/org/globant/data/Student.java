@@ -1,7 +1,5 @@
 package org.globant.data;
 
-import java.util.Arrays;
-
 public class Student {
     private String name;
     private int id;
@@ -11,7 +9,8 @@ public class Student {
     public Student(String name, int age){
         this.name = name;
         this.age = age;
-        this.id = (int)(Math.random() * 9999);
+        this.id = (int)(Math.random() * 99999);
+        University.addStudent(this);
     }
 
     // Getters
