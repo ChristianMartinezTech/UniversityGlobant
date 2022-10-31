@@ -116,10 +116,10 @@ public class University {
 
         for (int i = 0; i < listOfCourses.size(); i++) {
             Course course = listOfCourses.get(i);
-            Student[] students = course.getCourseStudents();
+            List<Student> students = course.getCourseStudents();
 
-            for (int j = 0; j < students.length; j++){
-                if (Objects.equals(students[j].getName(), studentName)){
+            for (int j = 0; j < students.size(); j++){
+                if (Objects.equals(students.get(j).getName(), studentName)){
                     studentCourse.add(listOfCourses.get(i).getName());
                 }
             }
@@ -141,17 +141,32 @@ public class University {
             return courseName;
         }
 
-        // Add student to course
-        public static String addStudentToCourse(int studentID, int courseID){
-            String courseName = findCourseByID(courseID); // English
-            String studentName = findStudentName(studentID); // Christian Martinez
+        // Return student type
+        public static Student studentClass(int studentID){
+            Student referencedStudent = null;
 
-            for (int i = 0; i < listOfCourses.size(); i++) {
-                if (Objects.equals(listOfCourses.get(i).getName(), courseName)){
-                    // Si encontramos el curso con nombre "English"
-                    // Course.addStudent(studentName);
+            for (int i = 0; i < listOfStudents.size(); i++){
+                if (listOfStudents.get(i).getId() == studentID){
+                    referencedStudent = listOfStudents.get(i);
                 }
             }
-            return "";
+            return referencedStudent;
         }
-    }
+
+        // Add student to course
+        public static String addStudentToCourse(int studentID, int courseID) {
+            List studentCourses = studentCourses(studentID);
+            String courseName = findCourseByID(courseID);
+
+            if (!studentCourses.contains(courseName)) {
+                for (int i = 0; i < listOfCourses.size(); i++) {
+                    if (Objects.equals(listOfCourses.get(i).getCourseId(), courseID)) {
+
+                        listOfCourses.get(i).addStudent(studentClass(studentID));
+                        return "Student Added to Class";
+                    }
+                }
+            }
+            return ("Student already Added to Class");
+        }
+}

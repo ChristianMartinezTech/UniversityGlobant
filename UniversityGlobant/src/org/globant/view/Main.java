@@ -2,7 +2,9 @@ package org.globant.view;
 
 import org.globant.data.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static org.globant.data.University.findStudentName;
@@ -53,26 +55,26 @@ public class Main {
         Student Sindy = new Student("Sindy Piedrahita", 22);
 
         // Initializing Courses
-        Student[] studentsEnglish = new Student[2];
-        studentsEnglish[0] = Jarold;
-        studentsEnglish[1] = Sindy;
+        List<Student> studentsEnglish = new ArrayList<>();
+        studentsEnglish.add(Jarold);
+        studentsEnglish.add(Sindy);
         Course English = new Course("English", 101, studentsEnglish, Courtois.getName());
 
-        Student[] studentsFrontEnd = new Student[3];
-        studentsFrontEnd[0] = Massi;
-        studentsFrontEnd[1] = Sindy;
-        studentsFrontEnd[2] = Rivas;
+        List<Student> studentsFrontEnd = new ArrayList<>();
+        studentsFrontEnd.add(Massi);
+        studentsFrontEnd.add(Sindy);
+        studentsFrontEnd.add(Rivas);
         Course FrontEnd = new Course("Front-End Development",  102,studentsFrontEnd, Modric.getName());
 
-        Student[] studentsBackEnd = new Student[3];
-        studentsBackEnd[0] = Chris;
-        studentsBackEnd[1] = Jarold;
-        studentsBackEnd[2] = Teo;
+        List<Student> studentsBackEnd = new ArrayList<>();
+        studentsBackEnd.add(Chris);
+        studentsBackEnd.add(Jarold);
+        studentsBackEnd.add(Teo);
         Course BackEnd = new Course("Back-End Development",  103, studentsBackEnd, Benzema.getName());
 
-        Student[] studentsDevOps = new Student[2];
-        studentsDevOps[0] = Chris;
-        studentsDevOps[1] = Rivas;
+        List<Student> studentsDevOps = new ArrayList<>();
+        studentsDevOps.add(Chris);
+        studentsDevOps.add(Rivas);
         Course DevOps = new Course("DevOps Development",  101, studentsDevOps, Vini.getName());
         return Globant;
     }
@@ -227,6 +229,7 @@ public class Main {
         } else {
             System.out.println("");
             System.out.println("Student NOT found. Please type in your correct student ID.");
+            System.out.println("");
             mainMenu(Globant);
         }
     }
@@ -237,8 +240,8 @@ public class Main {
         System.out.println("1. Type 1 to see all your Courses");
         System.out.println("2. Type 2 to assign yourself a course");
         System.out.println("3. Type 3 to remove yourself from a course");
-        System.out.println("4. Type 5 to go back to the previous menu");
-        System.out.println("5. Type 6 to exit");
+        System.out.println("4. Type 4 to go back to the previous menu");
+        System.out.println("5. Type 5 to exit");
         String studentname = findStudentName(studentID);
         System.out.println(studentname);
         int studentChoose = usr.nextInt();
