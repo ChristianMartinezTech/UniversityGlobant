@@ -1,5 +1,6 @@
 package org.globant.data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,10 +9,10 @@ public class Course {
     private String name;
     private int classroom;
     private String teacherName;
-    private Student[] courseStudents;
+    private List<Student> courseStudents;
 
     // Constructor
-    public Course(String name, int classroom, Student[] courseStudents, String teacherName){
+    public Course(String name, int classroom, List<Student> courseStudents, String teacherName){
         this.name = name;
         this.classroom = classroom;
         this.courseStudents = courseStudents;
@@ -35,7 +36,7 @@ public class Course {
         return teacherName;
     }
 
-    public Student[] getCourseStudents() {
+    public List<Student> getCourseStudents() {
         return courseStudents;
     }
 
@@ -55,7 +56,7 @@ public class Course {
     public void setTeacherName(String teacherName) {this.teacherName = teacherName;
     }
 
-    public void setCourseStudents(Student[] courseStudents) {
+    public void setCourseStudents(List<Student> courseStudents) {
         this.courseStudents = courseStudents;
     }
 
@@ -63,7 +64,7 @@ public class Course {
     // Methods
     @Override
     public String toString(){
-        return "Course name: " + this.name + ". Teacher: " + teacherName + ". Course ID: " + this.courseId + ". Classroom: " + this.classroom + ". Students: " + Arrays.toString(this.courseStudents) + ".";
+        return "Course name: " + this.name + ". Teacher: " + teacherName + ". Course ID: " + this.courseId + ". Classroom: " + this.classroom + ". Students: " + this.courseStudents + ".";
     }
 
     // Print course details
@@ -73,6 +74,6 @@ public class Course {
 
     // Add student Method
     public void addStudent(Student newStudent){
-        
+        this.courseStudents.add(newStudent);
     }
 }
