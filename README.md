@@ -2,7 +2,7 @@
 ![alt text](https://github.com/ChristianMartinezTech/UniversityGlobant/blob/main/GlobantLogo.png?raw=true)
 
 ## Guide for teachers
-Hi there **** and **Juan Pablo Castiblanco**!
+Hi there **Felipe Jimenez** and **Juan Pablo Castiblanco**!
 This has been the result of 4 very intense weeks of Java learning. :))
 
 There's a guide bellow on how to get the results stated in the PDF guide. The guide of commands always assumes you're in the main menu of the application.
