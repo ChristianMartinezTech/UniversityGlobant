@@ -1,5 +1,9 @@
 package org.globant.data;
 
+/***
+ * PartTimeTeacher class
+ * Inherits from the Teacher class
+ */
 public class PartTimeTeacher extends Teacher{
     private int weeklyHours;
 
@@ -20,7 +24,10 @@ public class PartTimeTeacher extends Teacher{
         this.weeklyHours = weeklyHours;
     }
 
-    // Methods
+    /***
+     * Calculates the salary of the PartTimeTeacher
+     * @return float with the PartTimeTeacher salary
+     */
     public float calculateSalary(){
         float salary = getBaseSalary();
         return salary * weeklyHours;

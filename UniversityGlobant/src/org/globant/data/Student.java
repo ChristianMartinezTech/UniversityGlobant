@@ -1,5 +1,9 @@
 package org.globant.data;
 
+
+/***
+ * Student class
+ */
 public class Student {
     private String name;
     private int id;
@@ -35,7 +39,10 @@ public class Student {
         this.id = id;
     }
 
-    // Methods
+    /***
+     * Overidin the toString method to print name and id only, in the wnated formatting
+     * @return String with the Student name and id
+     */
     @Override
     public String toString(){
         return "Student name: " + this.name +  ". Student ID: " + this.id;
