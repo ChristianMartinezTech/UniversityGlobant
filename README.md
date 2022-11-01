@@ -1,7 +1,8 @@
 # Globant university
+![alt text](https://github.com/ChristianMartinezTech/UniversityGlobant/blob/main/GlobantLogo.png?raw=true)
 
 ## Guide for teachers
-Hi there **Felipe Jimenez** and **Juan Pablo Castiblanco**!
+Hi there **** and **Juan Pablo Castiblanco**!
 This has been the result of 4 very intense weeks of Java learning. :))
 
 There's a guide bellow on how to get the results stated in the PDF guide. The guide of commands always assumes you're in the main menu of the application.
@@ -15,7 +16,7 @@ There's a guide bellow on how to get the results stated in the PDF guide. The gu
   - List all the classes in which a given student is included (hint: search by id) | Press 2 -> 1
   - Exit | Press -> 0
 
-## About
+## Description
 Globant university is system to track university classes, teachers and students.
 
 As shown bellow, this is an Object-Oriented System with the Following Classes:
@@ -27,7 +28,4 @@ As shown bellow, this is an Object-Oriented System with the Following Classes:
   - Course: define the Course class
 
 ## Diagram
-.
-
 ![alt text](https://github.com/ChristianMartinezTech/UniversityGlobant/blob/main/UniversityUML.png?raw=true)
-
