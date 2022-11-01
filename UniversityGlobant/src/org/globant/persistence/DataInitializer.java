@@ -5,9 +5,14 @@ import org.globant.data.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * Initializes data used in the application
+ */
 public class DataInitializer {
-
-    // Methods
+    /***
+     * initializes the University predetermined info
+     * @return University object
+     */
     public static University preInfoSetup(){
         // Initializing University
         University Globant = new University();

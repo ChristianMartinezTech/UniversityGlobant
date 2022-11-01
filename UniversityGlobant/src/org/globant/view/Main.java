@@ -16,6 +16,10 @@ public class Main {
         mainMenu(Globant);
     }
 
+    /***
+     * Main menu program. Takes in the main menu options
+     * @param Globant Data
+     */
     public static void mainMenu(University Globant){
         Scanner usr = new Scanner(System.in);
         System.out.println("Hi there.");
@@ -46,7 +50,11 @@ public class Main {
         }
     }
 
-
+    /***
+     * Verifies the option chosen in the main menu
+     * @param usrOption Option selected by the user in the main menu
+     * @param Globant Data
+     */
     public static void menuOptions(int usrOption, University Globant){
         Scanner usr = new Scanner(System.in);
         switch(usrOption){
@@ -205,6 +213,10 @@ public class Main {
         }
     }
 
+    /***
+     * Verifies the teacher exists
+     * @param Globant Data
+     */
     public static void teacherVerification(University Globant){
         Scanner usr = new Scanner(System.in);
         System.out.println("");
@@ -226,6 +238,10 @@ public class Main {
         }
     }
 
+    /***
+     * Teacher menu options
+     * @param Globant Data
+     */
     public static void teacherMenu(University Globant, String teacherName){
         Scanner usr = new Scanner(System.in);
              System.out.println("");
@@ -295,6 +311,10 @@ public class Main {
              }
     }
 
+    /***
+     * Verifies the student exists
+     * @param Globant Data
+     */
     public static void studentVerification(University Globant) {
         Scanner usr = new Scanner(System.in);
         System.out.println("");
@@ -314,6 +334,11 @@ public class Main {
         }
     }
 
+    /***
+     * Student menu options
+     * @param Globant Data
+     * @param studentID student id
+     */
     private static void studentMenu(University Globant, int studentID) {
         Scanner usr = new Scanner(System.in);
         System.out.println("");

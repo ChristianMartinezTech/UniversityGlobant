@@ -1,5 +1,9 @@
 package org.globant.data;
 
+/***
+ * Teacher abstract class
+ * This class is inherited by FullTimeTeacher and PartTimeTeacher
+ */
 public abstract class Teacher{
     private String name;
     private float baseSalary;
@@ -35,7 +39,10 @@ public abstract class Teacher{
     }
 
 
-    // Methods
+    /***
+     * Override the toString method
+     * @return String with the desited teacher details
+     */
     @Override
     public String toString(){
         return "Teacher name: " + this.name +  ". Base salary: " + this.baseSalary + ". Full time: " + this.isFullTime + ".";

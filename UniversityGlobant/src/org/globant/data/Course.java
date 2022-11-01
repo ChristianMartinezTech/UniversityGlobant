@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/***
+ * Course class
+ */
 public class Course {
     private int courseId;
     private String name;
@@ -61,23 +64,35 @@ public class Course {
     }
 
 
-    // Methods
+    /**
+     * Override the toString method
+     * @return String with the Course data and desired formatting
+     */
     @Override
     public String toString(){
         return "Course name: " + this.name + ". Teacher: " + teacherName + ". Course ID: " + this.courseId + ". Classroom: " + this.classroom + ". Students: " + this.courseStudents + ".";
     }
 
-    // Print course details
+    /***
+     * Gets the course details
+     * @return String with the course details
+     */
     public String showCourseDetails(){
         return toString();
     }
 
-    // Add student Method
+    /***
+     * Adds a student to the courseStudents array list
+     * @param newStudent void
+     */
     public void addStudent(Student newStudent){
         this.courseStudents.add(newStudent);
     }
 
-    // Remove student method
+    /***
+     * Removes a student of the courseStudents array list
+     * @param newStudent void
+     */
     public void removeStudent(Student newStudent){
         this.courseStudents.remove(newStudent);
     }
